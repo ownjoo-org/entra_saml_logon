@@ -79,23 +79,14 @@ def main(
         proxies: Optional[dict] = None,
 ) -> str:
     session = Session()
-
     session.proxies = proxies
-
-    try:
-        result: str = get_saml_response(
-            session=session,
-            sp_url=sp_url,
-            username=username,
-            password=password,
-        )
-        return result
-    except HTTPError as http_err:
-        print(f'HTTPError during logon: {http_err}')
-        raise
-    except Exception as exc_auth:
-        print(f'Unexpected error during logon: {exc_auth}')
-        raise
+    result: str = get_saml_response(
+        session=session,
+        sp_url=sp_url,
+        username=username,
+        password=password,
+    )
+    return result
 
 
 if __name__ == '__main__':
