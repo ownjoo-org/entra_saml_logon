@@ -49,12 +49,14 @@ def get_saml_response(session: Session, sp_url: str, username: str, password: st
 
     url: str = sp_url
     flow_data: dict = {}
+    request_limit: int = 10
 
-    while not result:
+    while not result and request_limit:
         response: Response = session.post(
             url=url,
             data=flow_data,
         )
+        request_limit -= 1
         soup: BeautifulSoup = BeautifulSoup(response.text, 'html.parser')
         saml_response: PageElement = soup.find(attrs={'name': 'SAMLResponse'})
         if saml_response:
