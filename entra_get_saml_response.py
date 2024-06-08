@@ -47,15 +47,12 @@ def get_flow_data(html: str) -> dict:
 def get_saml_response(session: Session, sp_url: str, username: str, password: str) -> str:
     result: Optional[str] = None
 
-    response: Response = session.post(url=sp_url)
-    flow_data: dict = get_flow_data(html=response.text)
-    flow_data['login'] = username
-    flow_data['loginfmt'] = username
-    flow_data['passwd'] = password
+    url: str = sp_url
+    flow_data: dict = {}
 
     while not result:
         response: Response = session.post(
-            url=flow_data.get("urlPost", ""),
+            url=url,
             data=flow_data,
         )
         soup: BeautifulSoup = BeautifulSoup(response.text, 'html.parser')
@@ -64,6 +61,10 @@ def get_saml_response(session: Session, sp_url: str, username: str, password: st
             result: str = saml_response.get('value')
             break
         flow_data = get_flow_data(html=response.text)
+        url = flow_data.get("urlPost", "")
+        flow_data['login'] = username
+        flow_data['loginfmt'] = username
+        flow_data['passwd'] = password
 
     return result
 
