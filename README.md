@@ -9,7 +9,6 @@ your own static analysis and supply chain testing before use.  Many libraries ar
 ```
 $ python entra_get_saml_response.py
 usage: entra_get_saml_response.py [-h] --sp_url SP_URL --username USERNAME --password PASSWORD [--proxies PROXIES]
-entra_get_saml_response.py: error: the following arguments are required: --sp_url, --username, --password
 ```
 
 # NOTE:
