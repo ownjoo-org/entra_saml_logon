@@ -11,6 +11,12 @@ $ python entra_get_saml_response.py
 usage: entra_get_saml_response.py [-h] --sp_url SP_URL --username USERNAME --password PASSWORD [--proxies PROXIES]
 ```
 
+# example
+```
+$ python entra_get_saml_response.py --sp_url https://MySlackSubDomain.slack.com/sso/saml/start --username MyEntraUsername --password MySecurePassword
+
+```
+
 # NOTE:
 For requests-html, the chromium download is hard-coded to a version.  During my testing that revision did not exist.  It can be specified by setting the env var below to a revision that's available and/or otherwise desireable.
 `$ export PYPPETEER_CHROMIUM_REVISION=1312423`

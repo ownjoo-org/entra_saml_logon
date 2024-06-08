@@ -62,11 +62,12 @@ def get_saml_response(session: Session, sp_url: str, username: str, password: st
         if saml_response:
             result: str = saml_response.get('value')
             break
-        flow_data = get_flow_data(html=response.text)
-        url = flow_data.get("urlPost", "")
-        flow_data['login'] = username
-        flow_data['loginfmt'] = username
-        flow_data['passwd'] = password
+        else:
+            flow_data = get_flow_data(html=response.text)
+            url = flow_data.get("urlPost", "")
+            flow_data['login'] = username
+            flow_data['loginfmt'] = username
+            flow_data['passwd'] = password
 
     return result
 
