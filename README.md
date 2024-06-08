@@ -18,6 +18,6 @@ $ python entra_get_saml_response.py --sp_url https://MySlackSubDomain.slack.com/
 ```
 
 # NOTE:
-For requests-html, the chromium download is hard-coded to a version.  During my testing that revision did not exist.  It can be specified by setting the env var below to a revision that's available and/or otherwise desireable.
-`$ export PYPPETEER_CHROMIUM_REVISION=1312423`
-`C:\whatever> set PYPPETEER_CHROMIUM_REVISION=1312423`
+For requests-html, the chromium download is hard-coded to a version.  During my testing that revision did not exist.  It can be specified by setting the env var below to a revision that's available and/or otherwise desireable.<br>
+`$ export PYPPETEER_CHROMIUM_REVISION=1312423`<br>
+`C:\whatever> set PYPPETEER_CHROMIUM_REVISION=1312423`<br>
