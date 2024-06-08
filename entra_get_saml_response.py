@@ -128,7 +128,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     proxies: Optional[dict] = None
-    if proxies:
+    if args.proxies:
         proxies: dict = loads(args.proxies)
 
     if data := main(
