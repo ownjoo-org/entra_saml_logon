@@ -129,11 +129,7 @@ if __name__ == '__main__':
 
     proxies: Optional[dict] = None
     if proxies:
-        try:
-            proxies: dict = loads(args.proxies)
-        except Exception as exc_json:
-            print(f'WARNING: failure parsing proxies: {exc_json}: proxies provided: {proxies}')
-            raise exc_json
+        proxies: dict = loads(args.proxies)
 
     if data := main(
         sp_url=args.sp_url,
