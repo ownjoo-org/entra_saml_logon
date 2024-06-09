@@ -51,22 +51,19 @@ def get_saml_response(session: Session, sp_url: str, username: str, password: st
     request_limit: int = 10
 
     while not result and request_limit:
-        response: Response = session.post(
-            url=url,
-            data=flow_data,
-        )
+        response: Response = session.post(url=url, data=flow_data)
         request_limit -= 1
         soup: BeautifulSoup = BeautifulSoup(response.text, 'html.parser')
         saml_response: PageElement = soup.find(attrs={'name': 'SAMLResponse'})
         if saml_response:
             result: str = saml_response.get('value')
-            break
         else:
             flow_data = get_flow_data(html=response.text)
-            url = flow_data.get("urlPost", "")
-            flow_data['login'] = username
-            flow_data['loginfmt'] = username
-            flow_data['passwd'] = password
+            if flow_data:
+                url = flow_data.get("urlPost", "")
+                flow_data['login'] = username
+                flow_data['loginfmt'] = username
+                flow_data['passwd'] = password
 
     return result
 
