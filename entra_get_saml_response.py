@@ -4,7 +4,6 @@ import re
 from bs4 import BeautifulSoup, PageElement
 from json import loads
 from typing import Optional
-from requests import HTTPError
 from requests import Session, Response
 from urllib.parse import urlparse, ParseResult
 
