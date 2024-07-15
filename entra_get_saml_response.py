@@ -8,9 +8,12 @@ from requests import Session, Response
 from urllib.parse import urlparse, ParseResult
 
 
+config_rex: re.Pattern = re.compile(r'\$Config')
+
+
 def parse_config(html: str) -> Optional[dict]:
     soup_login: BeautifulSoup = BeautifulSoup(html, 'html.parser')
-    cdata_config: str = soup_login.find(string=re.compile(r'\$Config'))
+    cdata_config: str = soup_login.find(string=config_rex)
     if not cdata_config:
         return None
     config_raw: str = (
