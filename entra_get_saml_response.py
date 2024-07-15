@@ -32,6 +32,8 @@ def get_flow_data(html: str) -> dict:
     result: dict = {}
 
     config: dict = parse_config(html=html)
+    if not config and isinstance(config, dict):
+        return result
     url_no_cookies: str = config.get('urlNoCookies')
     parsed_url: ParseResult = urlparse(url_no_cookies)
     base_url: str = f'{parsed_url.scheme}://{parsed_url.netloc}'
