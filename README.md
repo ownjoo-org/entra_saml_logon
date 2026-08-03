@@ -1,6 +1,7 @@
 # entra_saml_logon
 
 [![License](https://img.shields.io/github/license/ownjoo/entra_saml_logon)](LICENSE)
+[![Top language](https://img.shields.io/github/languages/top/ownjoo/entra_saml_logon)](https://github.com/ownjoo/entra_saml_logon) [![Stars](https://img.shields.io/github/stars/ownjoo/entra_saml_logon)](https://github.com/ownjoo/entra_saml_logon/stargazers) [![Forks](https://img.shields.io/github/forks/ownjoo/entra_saml_logon)](https://github.com/ownjoo/entra_saml_logon/forks) [![Issues](https://img.shields.io/github/issues/ownjoo/entra_saml_logon)](https://github.com/ownjoo/entra_saml_logon/issues) [![Pull requests](https://img.shields.io/github/issues-pr/ownjoo/entra_saml_logon)](https://github.com/ownjoo/entra_saml_logon/pulls)
 Login and intercept one-time-use SAMLResponse before it's sent to the SP.  I use this for APIs that need the SAMLResponse value submitted to a different endpoint than the IdP redirects to.
 
 # SECURITY NOTE:
