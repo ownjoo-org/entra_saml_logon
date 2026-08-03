@@ -1,4 +1,6 @@
 # entra_saml_logon
+
+[![License](https://img.shields.io/github/license/ownjoo/entra_saml_logon)](LICENSE)
 Login and intercept one-time-use SAMLResponse before it's sent to the SP.  I use this for APIs that need the SAMLResponse value submitted to a different endpoint than the IdP redirects to.
 
 # SECURITY NOTE:
